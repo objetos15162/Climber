@@ -64,10 +64,7 @@ public class Player extends ScrollActor
     
     private void moveRight(){
         getWorld().setCameraLocation(getGlobalX() + speed, getGlobalY());
-        
-        if(animationCounter % 4 == 0){
-            animateRight();
-        }
+        animationSpeedRight();
     }
     
     private void animateRight(){
@@ -132,10 +129,7 @@ public class Player extends ScrollActor
     
     private void moveLeft(){
         getWorld().setCameraLocation(getGlobalX() - speed, getGlobalY());
-        
-        if(animationCounter % 4 == 0){
-            animateLeft();
-        }
+        animationSpeedLeft();
     }
     
     /**
@@ -220,18 +214,21 @@ public class Player extends ScrollActor
         fall();
     }
     
+    private void animationSpeedRight()
+    {
+        if(animationCounter % 4 == 0){
+            animateRight();
+        }
+    }
+    
+    private void animationSpeedLeft()
+    {
+        if(animationCounter % 4 == 0){
+            animateLeft();
+        }
+    }
+    
     public void death(){
         
-    }
-    
-    public int getGlobalXPlayer()
-    {
-        int x = getGlobalX();
-        return x;
-    }
-    
-    public int getGlobalYPlayer()
-    {
-        return getGlobalY();
     }
 }
