@@ -15,6 +15,9 @@ public class Player extends ScrollActor
     private int jumpStrength = 15;
     private int speed = 4;
     private int frame = 1;
+    private int lifePoints = 3;
+    private int score = 0;
+    
     
     private GreenfootImage run1 = new GreenfootImage("Human_side_1.png");
     private GreenfootImage run2 = new GreenfootImage("Human_side_2.png");
@@ -241,6 +244,25 @@ public class Player extends ScrollActor
     }
     
     public void death(){
-        
     }
+    
+    private void lifes()
+    {
+        if(isTouching(Enemy.class))
+        {
+            lifePoints -= 1;
+        }
+        else if(lifePoints == 0)
+        {
+            death();
+        }
+    }
+    
+    // private void score()
+    // {
+        // if(scrollHight == 299)
+        // {
+            // score += 50;
+        // }
+    // }
 }
