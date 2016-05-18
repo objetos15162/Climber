@@ -39,20 +39,11 @@ public class Enemy extends ScrollActor
     
     private void checkMove()
     {
-        if(!Greenfoot.isKeyDown("z") && jumping == false){
-            jump();
-        }
-        // if(getObjectsInRange(1, Player.class).isEmpty()){
-            // moveLeft();
-            // // moveRight();
-        // }
-         // if(Greenfoot.isKeyDown("left")){
-
-          // }
+        
     }
     
     private void moveRight(){
-        setLocation(getX() + speed, getY());
+        setGlobalLocation(getGlobalX() + speed, getGlobalY());
         
         if(animationCounter % 4 == 0){
             animateRight();
@@ -90,7 +81,7 @@ public class Enemy extends ScrollActor
     }
     
     private void moveLeft(){
-        setLocation(getX() - speed, getY());
+        setGlobalLocation(getGlobalX() - speed, getGlobalY());
         
         if(animationCounter % 4 == 0){
             animateLeft();
@@ -98,9 +89,8 @@ public class Enemy extends ScrollActor
     }
     
     private void fall(){
-        setLocation(getX(), getY() + vSpeed);
+        setGlobalLocation(getGlobalX(), getGlobalY() + vSpeed);
         vSpeed = vSpeed + acceleration;
-        jumping = true;
     }
     
     private boolean onGround(){
@@ -108,14 +98,14 @@ public class Enemy extends ScrollActor
         int lookForGround = (int)(spriteHeight/2) + 2;
         
         Actor groundA = getOneObjectAtOffset(0, lookForGround, Block.class);
-        //ScrollActor ground = (ScrollActor)groundA;
+        ScrollActor ground = (ScrollActor)groundA;
         
-        if(groundA == null){
+        if(ground == null){
             jumping = true;
             return false;
         }
         else{
-            moveToGround(groundA);
+            moveToGround(ground);
             return true;
         }
     }
@@ -125,11 +115,11 @@ public class Enemy extends ScrollActor
         int yDistance = (int)(spriteHeight/-2);
         
         Actor ceilingA = getOneObjectAtOffset(0, yDistance, Block.class);
-        //ScrollActor ceiling = (ScrollActor)ceilingA;
+        ScrollActor ceiling = (ScrollActor)ceilingA;
         
-        if(ceilingA != null){
+        if(ceiling != null){
             vSpeed = 1;
-            bopHead(ceilingA);
+            bopHead(ceiling);
             return true;
         }
         else{
@@ -137,21 +127,21 @@ public class Enemy extends ScrollActor
         }
     }
     
-    private void bopHead(Actor ceiling){
+    private void bopHead(ScrollActor ceiling){
         int ceilingHeight = ceiling.getImage().getHeight();
-        int newY = ceiling.getY() + (ceilingHeight + getImage().getHeight())/2;
+        int newY = ceiling.getGlobalY() + (ceilingHeight + getImage().getHeight())/2;
         
-        setLocation(getX(), newY);
+        setGlobalLocation(getGlobalX(), newY);
     }
     
     /**
      * 
      */
-    private void moveToGround(Actor ground){
+    private void moveToGround(ScrollActor ground){
         int groundHeight = ground.getImage().getHeight();
-        int newY = ground.getY() - (groundHeight + getImage().getHeight())/2;
+        int newY = ground.getGlobalY() - (groundHeight + getImage().getHeight())/2;
         
-        setLocation(getX(), newY);
+        setGlobalLocation(getGlobalX(), newY);
         jumping = false;
     }
     

@@ -63,7 +63,10 @@ public class Player extends ScrollActor
     }
     
     private void moveRight(){
-        getWorld().setCameraLocation(getGlobalX() + speed, getGlobalY());
+        if(getXFromCamera() > -10 && getXFromCamera() < 10){
+            getWorld().moveCamera(speed);
+        }
+        setGlobalLocation(getGlobalX() + speed, getGlobalY());
         animationSpeedRight();
     }
     
@@ -128,7 +131,10 @@ public class Player extends ScrollActor
     }
     
     private void moveLeft(){
-        getWorld().setCameraLocation(getGlobalX() - speed, getGlobalY());
+        if(getXFromCamera() > -10 && getXFromCamera() < 10){
+            getWorld().moveCamera(-speed);
+        }
+        setGlobalLocation(getGlobalX() - speed, getGlobalY());
         animationSpeedLeft();
     }
     
@@ -136,7 +142,10 @@ public class Player extends ScrollActor
      * 
      */
     private void fall(){
-        getWorld().setCameraLocation(getGlobalX(), getGlobalY() + vSpeed);
+        if(getYFromCamera() > -20 && getYFromCamera() < 20){
+            getWorld().setCameraLocation(getGlobalX(),getGlobalY() + vSpeed);
+        }
+        setGlobalLocation(getGlobalX(), getGlobalY() + vSpeed);
         vSpeed = vSpeed + acceleration;
         jumping = true;
     }
@@ -182,7 +191,7 @@ public class Player extends ScrollActor
         int ceilingHeight = ceiling.getImage().getHeight();
         int newY = ceiling.getGlobalY() + (ceilingHeight + getImage().getHeight())/2;
         
-        getWorld().setCameraLocation(getGlobalX(), newY);
+        setGlobalLocation(getGlobalX(), newY);
     }
     
     /**
@@ -192,7 +201,7 @@ public class Player extends ScrollActor
         int groundHeight = ground.getImage().getHeight();
         int newY = ground.getGlobalY() - (groundHeight + getImage().getHeight())/2;
         
-        getWorld().setCameraLocation(getGlobalX(), newY);
+        setGlobalLocation(getGlobalX(), newY);
         jumping = false;
     }
     
@@ -209,6 +218,9 @@ public class Player extends ScrollActor
     }
     
     private void jump(){
+        if(getYFromCamera() > -20 && getYFromCamera() < 20){
+            getWorld().setCameraLocation(getGlobalX(),getGlobalY() + vSpeed);
+        }
         vSpeed = vSpeed - jumpStrength;
         jumping = true;
         fall();

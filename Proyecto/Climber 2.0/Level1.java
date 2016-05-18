@@ -70,6 +70,6 @@ public class Level1 extends ScrollWorld
         addObject(ice21,784,524);
         Ice ice22 = new Ice();
         addObject(ice22,798,524);
-        addCameraFollower(new Player(),0,0);
+        
     }
 }
