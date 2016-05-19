@@ -16,6 +16,7 @@ public class Player extends Human
     private int frame = 1;
     private int lifePoints = 3;
     private int score = 0;
+    private int knives = 0;
     
     
     private GreenfootImage run1 = new GreenfootImage("Human_side_1.png");
@@ -204,6 +205,10 @@ public class Player extends Human
             death();
         }
 
+    }
+    
+    public void addKnife(){
+        knives += 1;
     }
     
     // private void score()

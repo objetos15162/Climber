@@ -24,18 +24,19 @@ public class Spikes extends Block
             starting = false;
         }
         move();
+        checkCollision();
     }    
     
     private void move(){
-        if(goingUp && getGlobalY() > startingY -80){
+        if(goingUp && getGlobalY() > startingY -100){
             setGlobalLocation(getGlobalX(),getGlobalY() - vSpeed);
         }
         else
-        if(!goingUp &&  getGlobalY() < startingY +80){
-            setGlobalLocation(getGlobalX(),startingY + vSpeed);
+        if(!goingUp &&  getGlobalY() < startingY +100){
+            setGlobalLocation(getGlobalX(),getGlobalY() + vSpeed);
         }
         else
-        if(getGlobalY() == startingY - 80 || getGlobalY() == startingY + 80){
+        if(getGlobalY() == startingY - 100 || getGlobalY() == startingY + 100){
             changeDirection();
         }
     }
@@ -49,4 +50,12 @@ public class Spikes extends Block
         }
     }
     
+    private void checkCollision(){
+        if(isTouching(Player.class)){
+            Actor pl = getOneIntersectingObject(Player.class);
+            Player person = (Player) pl;
+            person.death();
+            removeTouching(Human.class);
+        }
+    }
 }

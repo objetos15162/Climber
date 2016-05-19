@@ -8,10 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Knife extends ScrollActor
 {
-    private int speed = 4;
-    
-    private GreenfootImage run1 = new GreenfootImage("supercuchillodelamuerte.png");
-    //private GreenfootImage run2 = new GreenfootImage("knife");
+    private int speed = 5;
+    private boolean recoverable;
     /**
      * Act - do whatever the Knife wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -28,7 +26,7 @@ public class Knife extends ScrollActor
     
     private void noMove()
     {
-        setGlobalLocation(getGlobalX() , getGlobalY());
+        recoverable = true;
     }
     
     private void collision()
@@ -36,16 +34,22 @@ public class Knife extends ScrollActor
         if(!isTouching(Block.class))
         {
           moveRight();
+          recoverable = false;
         }
         else
         {
             noMove();
         }
-        
-        if(isTouching(Human.class));
-        {
-            removeTouching(Human.class);
+        if(isTouching(Player.class)){
+            if(!recoverable){
+                removeTouching(Player.class);
+            }
+            else{
+                Actor a = getOneIntersectingObject(Player.class);
+                Player p = (Player)a;
+                p.addKnife();
+                getWorld().removeObject(this);
+            }
         }
     }
-        
 }

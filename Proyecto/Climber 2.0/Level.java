@@ -10,6 +10,7 @@ public class Level extends ScrollWorld
 {
     private SimpleTimer timer;
     private Counter timerDisplay;
+    private Counter playersKnives;
     
     /**
      * Constructor for objects of class MyWorld.
@@ -20,8 +21,10 @@ public class Level extends ScrollWorld
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1, 2000, 1000); 
         timerDisplay = new Counter("Time: ");
+        playersKnives = new Counter("Knives: ");
         timer = new SimpleTimer();
         addObject(timerDisplay, 300, 20);
+        addObject(playersKnives, 100, 20);
         prepare();
     }
 
@@ -39,6 +42,14 @@ public class Level extends ScrollWorld
             timer.mark();
         }
     }
+    
+    private void addKnife(){
+        playersKnives.add(1);
+    }
+    
+    private void removeKnife(){
+        playersKnives.add(-1);
+    }    
     
     /**
      * Prepare the world for the start of the program.
