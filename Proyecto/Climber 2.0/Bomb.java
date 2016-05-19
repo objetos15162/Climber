@@ -8,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bomb extends Block
 {
-    private GreenfootImage bomb1 = new GreenfootImage("Block_bomb_1.png");
-    private GreenfootImage bomb2 = new GreenfootImage("Block_bomb_2.png");
+    private GreenfootImage bomb1 = new GreenfootImage("Bomb_0.png");
+    private GreenfootImage bomb2 = new GreenfootImage("Bomb_1.png");
     private int frame = 1;
     private int explosion = 0;
     private boolean ready = false;
@@ -38,7 +38,7 @@ public class Bomb extends Block
         }
         if(explosion == 35){
             Explosion e = new Explosion();
-            this.getWorld().addObject(e, this.getX(), this.getY());
+            this.getWorld().addObject(e, this.getGlobalX(), this.getGlobalY());
             this.getWorld().removeObject(this);
         }
         explosion++;

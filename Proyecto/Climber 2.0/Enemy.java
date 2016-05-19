@@ -6,12 +6,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Enemy extends ScrollActor
+public class Enemy extends Human
 {
     private int vSpeed = 0;
     private int acceleration = 1;
-    private boolean jumping;
-    private int jumpStrength = 15;
     private int speed = 4;
     private int frame = 1;
     
@@ -93,7 +91,7 @@ public class Enemy extends ScrollActor
         vSpeed = vSpeed + acceleration;
     }
     
-    private boolean onGround(){
+    /*private boolean onGround(){
         int spriteHeight = getImage().getHeight();
         int lookForGround = (int)(spriteHeight/2) + 2;
         
@@ -109,8 +107,9 @@ public class Enemy extends ScrollActor
             return true;
         }
     }
+    */
     
-    private boolean platformAbove(){
+    /*private boolean platformAbove(){
         int spriteHeight = getImage().getHeight();
         int yDistance = (int)(spriteHeight/-2);
         
@@ -126,24 +125,28 @@ public class Enemy extends ScrollActor
             return false;
         }
     }
+    */
     
-    private void bopHead(ScrollActor ceiling){
+    /*private void bopHead(ScrollActor ceiling){
         int ceilingHeight = ceiling.getImage().getHeight();
         int newY = ceiling.getGlobalY() + (ceilingHeight + getImage().getHeight())/2;
         
         setGlobalLocation(getGlobalX(), newY);
     }
-    
+    */
+    /*
     /**
      * 
      */
-    private void moveToGround(ScrollActor ground){
+    
+    /*private void moveToGround(ScrollActor ground){
         int groundHeight = ground.getImage().getHeight();
         int newY = ground.getGlobalY() - (groundHeight + getImage().getHeight())/2;
         
         setGlobalLocation(getGlobalX(), newY);
         jumping = false;
     }
+    */
     
     private void checkFall(){
         if(onGround()){
@@ -152,12 +155,6 @@ public class Enemy extends ScrollActor
         else{
             fall();
         }
-    }
-    
-    private void jump(){
-        vSpeed = vSpeed - jumpStrength;
-        jumping = true;
-        fall();
     }
     
     public void death(){

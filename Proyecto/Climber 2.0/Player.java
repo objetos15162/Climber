@@ -6,12 +6,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Player extends ScrollActor
+public class Player extends Human
 {
     
     private int vSpeed = 0;
     private int acceleration = 1;
-    private boolean jumping;
     private int jumpStrength = 15;
     private int speed = 4;
     private int frame = 1;
@@ -44,14 +43,16 @@ public class Player extends ScrollActor
     public void act() 
     {
         checkFall();
-        checkKey();
+        if(getCanMove()){
+            checkKey();
+        }
         platformAbove();
         
         animationCounter++;
     }    
     
     private void checkKey(){
-        if(Greenfoot.isKeyDown("z") && jumping == false){
+        if(Greenfoot.isKeyDown("z") && getJumping() == false){
             jump();
         }
         if(Greenfoot.isKeyDown("right")){
@@ -147,13 +148,13 @@ public class Player extends ScrollActor
         }
         setGlobalLocation(getGlobalX(), getGlobalY() + vSpeed);
         vSpeed = vSpeed + acceleration;
-        jumping = true;
+        changeJumping(true);
     }
     
     /**
      * 
      */
-    private boolean onGround(){
+    /*private boolean onGround(){
         int spriteHeight = getImage().getHeight();
         int lookForGround = (int)(spriteHeight/2) + 2;
         
@@ -169,7 +170,9 @@ public class Player extends ScrollActor
             return true;
         }
     }
-    
+    */
+   
+   /*
     private boolean platformAbove(){
         int spriteHeight = getImage().getHeight();
         int yDistance = (int)(spriteHeight/-2);
@@ -186,24 +189,27 @@ public class Player extends ScrollActor
             return false;
         }
     }
+    */
     
-    private void bopHead(ScrollActor ceiling){
+    /*private void bopHead(ScrollActor ceiling){
         int ceilingHeight = ceiling.getImage().getHeight();
         int newY = ceiling.getGlobalY() + (ceilingHeight + getImage().getHeight())/2;
         
         setGlobalLocation(getGlobalX(), newY);
     }
+    */
     
     /**
      * 
      */
-    private void moveToGround(ScrollActor ground){
+    /*private void moveToGround(ScrollActor ground){
         int groundHeight = ground.getImage().getHeight();
         int newY = ground.getGlobalY() - (groundHeight + getImage().getHeight())/2;
         
         setGlobalLocation(getGlobalX(), newY);
         jumping = false;
     }
+    */
     
     /**
      * 
@@ -222,7 +228,7 @@ public class Player extends ScrollActor
             getWorld().setCameraLocation(getGlobalX(),getGlobalY() + vSpeed);
         }
         vSpeed = vSpeed - jumpStrength;
-        jumping = true;
+        changeJumping(true);
         fall();
     }
     
@@ -243,4 +249,5 @@ public class Player extends ScrollActor
     public void death(){
         
     }
+    
 }
