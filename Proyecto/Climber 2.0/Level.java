@@ -43,11 +43,11 @@ public class Level extends ScrollWorld
         }
     }
     
-    private void addKnife(){
+    public void addKnife(){
         playersKnives.add(1);
     }
     
-    private void removeKnife(){
+    public void removeKnife(){
         playersKnives.add(-1);
     }    
     
@@ -56,17 +56,16 @@ public class Level extends ScrollWorld
      * That is: create the initial objects and add them to the world.
      */
     private void prepare()
-    {
-        
-    Spikes spikes = new Spikes();
-addObject(spikes,362,355);
-Player player = new Player();
-addObject(player,443,211);
-Block block = new Block();
-addObject(block,457,268);
-Bomb bomb = new Bomb();
-addObject(bomb,537,352);
-Ice ice = new Ice();
-addObject(ice,608,240);
-}
+    {        
+        Spikes spikes = new Spikes();
+        addObject(spikes,362,355);
+        Player player = new Player();
+        addObject(player,443,211);
+        Block block = new Block();
+        addObject(block,457,268);
+        Bomb bomb = new Bomb();
+        addObject(bomb,537,352);
+        Ice ice = new Ice();
+        addObject(ice,608,240);
+    }
 }

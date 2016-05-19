@@ -17,6 +17,7 @@ public class Player extends Human
     private int lifePoints = 3;
     private int score = 0;
     private int knives = 0;
+    private boolean facingRight = true;
     
     
     private GreenfootImage run1 = new GreenfootImage("Human_side_1.png");
@@ -51,7 +52,6 @@ public class Player extends Human
             checkKey();
         }
         platformAbove();
-        death();
         
         animationCounter++;
     }    
@@ -62,9 +62,15 @@ public class Player extends Human
         }
         if(Greenfoot.isKeyDown("right")){
             moveRight();
+            facingRight = true;
         }
         if(Greenfoot.isKeyDown("left")){
             moveLeft();
+            facingRight = false;
+        }
+        if(Greenfoot.isKeyDown("x") && getThrowing() == false){
+            throwKnife(facingRight);
+            changeThrowing(true);
         }
     }
     
@@ -181,6 +187,7 @@ public class Player extends Human
     {
         if(animationCounter % 4 == 0){
             animateRight();
+            changeThrowing(false);
         }
     }
     
@@ -192,30 +199,14 @@ public class Player extends Human
     }
     
     public void death(){
-        if(isTouching(Knife.class))
-        {
-            lifePoints-=1;
-        }
+        lifePoints -= 1;
+    }
+    
+    public boolean getFacingRight(){
+        return facingRight;
     }
     
     private void lifes()
     {
-        if(isTouching(Knife.class))
-        {
-            death();
-        }
-
     }
-    
-    public void addKnife(){
-        knives += 1;
-    }
-    
-    // private void score()
-    // {
-        // if(scrollHight == 299)
-        // {
-            // score += 50;
-        // }
-    // }
 }

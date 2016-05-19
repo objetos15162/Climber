@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Knife extends ScrollActor
 {
-    private int speed = 5;
+    private int speed = 10;
     private boolean recoverable;
     /**
      * Act - do whatever the Knife wants to do. This method is called whenever
@@ -19,9 +19,18 @@ public class Knife extends ScrollActor
         collision();
     }
     
-    private void moveRight()
+    private void move()
     {
-        setGlobalLocation(getGlobalX() + speed, getGlobalY());
+        move(speed);
+    }
+    
+    public void setDirection(boolean right){
+        if(right){
+            setRotation(0);
+        }
+        else{
+            setRotation(180);
+        }
     }
     
     private void noMove()
@@ -33,7 +42,7 @@ public class Knife extends ScrollActor
     {
         if(!isTouching(Block.class))
         {
-          moveRight();
+          move();
           recoverable = false;
         }
         else
@@ -41,12 +50,13 @@ public class Knife extends ScrollActor
             noMove();
         }
         if(isTouching(Player.class)){
+            Actor a = getOneIntersectingObject(Player.class);
+            Player p = (Player)a;
             if(!recoverable){
+                p.death();
                 removeTouching(Player.class);
             }
             else{
-                Actor a = getOneIntersectingObject(Player.class);
-                Player p = (Player)a;
                 p.addKnife();
                 getWorld().removeObject(this);
             }

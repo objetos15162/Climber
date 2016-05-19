@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
 
 /**
  * Write a description of class Ice here.
@@ -10,7 +11,7 @@ public class Ice extends Block
 {
     
     boolean makeSlide = false;
-    Human slider = null;
+    Player slider = null;
     
     /**
      * Act - do whatever the Ice wants to do. This method is called whenever
@@ -25,18 +26,17 @@ public class Ice extends Block
     }   
     
     private void checkCollision(){
-        int spriteWidth = getImage().getWidth();
-        int spriteHeight = getImage().getHeight();
-        int halfWidth = (int)(spriteWidth/2);
-        int lookForPerson = (int)(spriteHeight/-2) - 3;
-        Actor personA = getOneObjectAtOffset(-halfWidth,lookForPerson,Human.class);
-        Human person = (Human)personA;
-        if(person != null){
-            changeSlide(person);
+        List<Player> a;
+        a = getObjectsInRange(47, Player.class);
+        if(!a.isEmpty()){
+            Player person = a.get(a.size()-1);
+            if(person != null){
+                changeSlide(person);
+            }
         }
-    }
+   }
     
-    private void changeSlide(Human person){
+    private void changeSlide(Player person){
         if(makeSlide){
             makeSlide = false;
         }
@@ -46,15 +46,26 @@ public class Ice extends Block
         slider = person;
     }
     
-    private void slide(Human person){
+    private void slide(Player person){
         int spriteWidth = getImage().getWidth();    
         int endOfSprite = getGlobalX() + (int)(spriteWidth/2);
+        int startOfSprite = getGlobalX() - (int)(spriteWidth/2);
         person.changeCanMove(false);
-        if(person.getGlobalX() < endOfSprite){
-            person.setGlobalLocation(person.getGlobalX()+3, person.getGlobalY());
+        if(person.getFacingRight()){
+            if(person.getGlobalX() < endOfSprite){
+                person.setGlobalLocation(person.getGlobalX()+5, person.getGlobalY());
+            }
+            else{
+                person.changeCanMove(true);
+            }
         }
         else{
-            person.changeCanMove(true);
+            if(person.getGlobalX() > startOfSprite){
+                person.setGlobalLocation(person.getGlobalX()-5, person.getGlobalY());
+            }
+            else{
+                person.changeCanMove(true);
+            }
         }
     }
 }

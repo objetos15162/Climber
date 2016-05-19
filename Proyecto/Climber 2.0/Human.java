@@ -12,9 +12,11 @@ public class Human extends ScrollActor
     private int acceleration = 1;
     private boolean jumping;
     private boolean canMove = true;
+    private boolean throwing = false;
     private int speed = 4;
     private int frame = 1;
     private int animationCounter = 0;
+    private int knives = 0;
     
     /**
      * Act - do whatever the Player wants to do. This method is called whenever
@@ -30,6 +32,10 @@ public class Human extends ScrollActor
     
     public boolean getJumping(){
         return jumping;
+    }
+    
+    public boolean getThrowing(){
+        return throwing;
     }
     
     /**
@@ -97,5 +103,39 @@ public class Human extends ScrollActor
     
     public void changeJumping(boolean onAir){
         jumping = onAir;
+    }
+    
+    public void changeThrowing(boolean onThrow){
+        throwing = onThrow;
+    }
+    
+    public void throwKnife(boolean facingRight){
+        if(!throwing){
+            if(knives > 0){
+                removeKnife();
+                Knife k = new Knife();
+                if(facingRight){
+                    getWorld().addObject(k,getGlobalX() + 20, getGlobalY());
+                }
+                else{
+                    getWorld().addObject(k,getGlobalX() - 20, getGlobalY());            
+                }
+                k.setDirection(facingRight);
+            }
+        }
+    }
+    
+    public void addKnife(){
+        knives += 1;
+        World w = getWorld();
+        Level l = (Level)w;
+        l.addKnife();
+    }
+    
+    public void removeKnife(){
+        knives -= 1;
+        World w = getWorld();
+        Level l = (Level)w;
+        l.removeKnife();
     }
 }
