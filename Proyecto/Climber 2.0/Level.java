@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Level1 extends ScrollWorld
+public class Level extends ScrollWorld
 {
     private SimpleTimer timer;
     private Counter timerDisplay;
@@ -15,7 +15,7 @@ public class Level1 extends ScrollWorld
      * Constructor for objects of class MyWorld.
      * 
      */
-    public Level1()
+    public Level()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1, 2000, 1000); 
@@ -29,8 +29,8 @@ public class Level1 extends ScrollWorld
         tick();
     }
     
-    public SimpleTimer getTimer(){
-        return timer;
+    public Counter getTimer(){
+        return timerDisplay;
     }
     
     private void tick(){
@@ -47,5 +47,15 @@ public class Level1 extends ScrollWorld
     private void prepare()
     {
         
-    }
+    Spikes spikes = new Spikes();
+addObject(spikes,362,355);
+Player player = new Player();
+addObject(player,443,211);
+Block block = new Block();
+addObject(block,457,268);
+Bomb bomb = new Bomb();
+addObject(bomb,537,352);
+Ice ice = new Ice();
+addObject(ice,608,240);
+}
 }

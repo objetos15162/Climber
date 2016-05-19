@@ -32,12 +32,17 @@ public class Ice extends Block
         Actor personA = getOneObjectAtOffset(-halfWidth,lookForPerson,Human.class);
         Human person = (Human)personA;
         if(person != null){
-            allowSlide(person);
+            changeSlide(person);
         }
     }
     
-    private void allowSlide(Human person){
-        makeSlide = true;
+    private void changeSlide(Human person){
+        if(makeSlide){
+            makeSlide = false;
+        }
+        else{
+            makeSlide = true;
+        }
         slider = person;
     }
     
@@ -46,8 +51,10 @@ public class Ice extends Block
         int endOfSprite = getGlobalX() + (int)(spriteWidth/2);
         person.changeCanMove(false);
         if(person.getGlobalX() < endOfSprite){
-                person.setGlobalLocation(person.getGlobalX()+3, person.getGlobalY());
+            person.setGlobalLocation(person.getGlobalX()+3, person.getGlobalY());
         }
-        person.changeCanMove(true);
+        else{
+            person.changeCanMove(true);
+        }
     }
 }

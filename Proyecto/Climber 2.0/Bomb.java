@@ -27,7 +27,7 @@ public class Bomb extends Block
     }    
     
     private void checkPlayer(){
-        if(isTouching(Player.class)){
+        if(isTouching(Human.class)){
             ready = true;
         }
     }

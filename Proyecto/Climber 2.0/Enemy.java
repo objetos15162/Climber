@@ -90,7 +90,6 @@ public class Enemy extends Human
         setGlobalLocation(getGlobalX(), getGlobalY() + vSpeed);
         vSpeed = vSpeed + acceleration;
     }
-
     
     private void checkFall(){
         if(onGround()){

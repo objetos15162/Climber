@@ -8,11 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Spikes extends Block
 {   
-    private SimpleTimer timer = new SimpleTimer();
     private boolean goingUp = true;
     private boolean starting = true;
-    private int acceleration = 2;
-    private int vSpeed = 0;
+    private int vSpeed = 5;
     private int startingY;
     
     /**
@@ -26,38 +24,29 @@ public class Spikes extends Block
             starting = false;
         }
         move();
-        if(goingUp){
-            goUp();
-        }
-        else{
-            goDown();
-        }
     }    
     
     private void move(){
-        if(timer.millisElapsed()%8000 == 0){
-            if(goingUp){
-                goingUp = false;
-                vSpeed = 0;
-            }
-            else{
-                goingUp = true;
-                vSpeed = 0;
-            }
+        if(goingUp && getGlobalY() > startingY -80){
+            setGlobalLocation(getGlobalX(),getGlobalY() - vSpeed);
+        }
+        else
+        if(!goingUp &&  getGlobalY() < startingY +80){
+            setGlobalLocation(getGlobalX(),startingY + vSpeed);
+        }
+        else
+        if(getGlobalY() == startingY - 80 || getGlobalY() == startingY + 80){
+            changeDirection();
         }
     }
     
-    private void goUp(){
-        if(getGlobalY() == startingY - 80){
-            setGlobalLocation(getGlobalX(),getGlobalY()-vSpeed);
-            vSpeed = vSpeed + acceleration;
+    private void changeDirection(){
+        if(goingUp){
+            goingUp = false;
+        }
+        else{
+            goingUp = true;
         }
     }
     
-    private void goDown(){
-        if(getGlobalY() == startingY + 80){
-            setGlobalLocation(getGlobalX(),getGlobalY()+vSpeed);
-            vSpeed = vSpeed + acceleration;
-        }
-    }
 }

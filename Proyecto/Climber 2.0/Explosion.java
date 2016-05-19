@@ -18,11 +18,11 @@ public class Explosion extends ScrollActor
     }    
     
     private void checkCollision(){
-        if(isTouching(Player.class)){
+        if(isTouching(Human.class)){
             Actor pl = getOneIntersectingObject(Player.class);
-            Player player = (Player) pl;
-            player.death();
-            removeTouching(Player.class);
+            Human person = (Human) pl;
+            person.death();
+            removeTouching(Human.class);
         }
     }
 }
