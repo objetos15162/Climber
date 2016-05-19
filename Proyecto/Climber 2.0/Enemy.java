@@ -90,63 +90,7 @@ public class Enemy extends Human
         setGlobalLocation(getGlobalX(), getGlobalY() + vSpeed);
         vSpeed = vSpeed + acceleration;
     }
-    
-    /*private boolean onGround(){
-        int spriteHeight = getImage().getHeight();
-        int lookForGround = (int)(spriteHeight/2) + 2;
-        
-        Actor groundA = getOneObjectAtOffset(0, lookForGround, Block.class);
-        ScrollActor ground = (ScrollActor)groundA;
-        
-        if(ground == null){
-            jumping = true;
-            return false;
-        }
-        else{
-            moveToGround(ground);
-            return true;
-        }
-    }
-    */
-    
-    /*private boolean platformAbove(){
-        int spriteHeight = getImage().getHeight();
-        int yDistance = (int)(spriteHeight/-2);
-        
-        Actor ceilingA = getOneObjectAtOffset(0, yDistance, Block.class);
-        ScrollActor ceiling = (ScrollActor)ceilingA;
-        
-        if(ceiling != null){
-            vSpeed = 1;
-            bopHead(ceiling);
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-    */
-    
-    /*private void bopHead(ScrollActor ceiling){
-        int ceilingHeight = ceiling.getImage().getHeight();
-        int newY = ceiling.getGlobalY() + (ceilingHeight + getImage().getHeight())/2;
-        
-        setGlobalLocation(getGlobalX(), newY);
-    }
-    */
-    /*
-    /**
-     * 
-     */
-    
-    /*private void moveToGround(ScrollActor ground){
-        int groundHeight = ground.getImage().getHeight();
-        int newY = ground.getGlobalY() - (groundHeight + getImage().getHeight())/2;
-        
-        setGlobalLocation(getGlobalX(), newY);
-        jumping = false;
-    }
-    */
+
     
     private void checkFall(){
         if(onGround()){

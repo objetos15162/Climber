@@ -14,6 +14,9 @@ public class Player extends Human
     private int jumpStrength = 15;
     private int speed = 4;
     private int frame = 1;
+    private int lifePoints = 3;
+    private int score = 0;
+    
     
     private GreenfootImage run1 = new GreenfootImage("Human_side_1.png");
     private GreenfootImage run2 = new GreenfootImage("Human_side_2.png");
@@ -150,67 +153,7 @@ public class Player extends Human
         vSpeed = vSpeed + acceleration;
         changeJumping(true);
     }
-    
-    /**
-     * 
-     */
-    /*private boolean onGround(){
-        int spriteHeight = getImage().getHeight();
-        int lookForGround = (int)(spriteHeight/2) + 2;
-        
-        Actor groundA = getOneObjectAtOffset(0, lookForGround, Block.class);
-        ScrollActor ground = (ScrollActor)groundA;
-        
-        if(ground == null){
-            jumping = true;
-            return false;
-        }
-        else{
-            moveToGround(ground);
-            return true;
-        }
-    }
-    */
-   
-   /*
-    private boolean platformAbove(){
-        int spriteHeight = getImage().getHeight();
-        int yDistance = (int)(spriteHeight/-2);
-        
-        Actor ceilingA = getOneObjectAtOffset(0, yDistance, Block.class);
-        ScrollActor ceiling = (ScrollActor)ceilingA;
-        
-        if(ceiling != null){
-            vSpeed = 1;
-            bopHead(ceiling);
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-    */
-    
-    /*private void bopHead(ScrollActor ceiling){
-        int ceilingHeight = ceiling.getImage().getHeight();
-        int newY = ceiling.getGlobalY() + (ceilingHeight + getImage().getHeight())/2;
-        
-        setGlobalLocation(getGlobalX(), newY);
-    }
-    */
-    
-    /**
-     * 
-     */
-    /*private void moveToGround(ScrollActor ground){
-        int groundHeight = ground.getImage().getHeight();
-        int newY = ground.getGlobalY() - (groundHeight + getImage().getHeight())/2;
-        
-        setGlobalLocation(getGlobalX(), newY);
-        jumping = false;
-    }
-    */
-    
+  
     /**
      * 
      */
@@ -247,7 +190,26 @@ public class Player extends Human
     }
     
     public void death(){
-        
     }
     
+
+    private void lifes()
+    {
+        if(isTouching(Enemy.class))
+        {
+            lifePoints -= 1;
+        }
+        else if(lifePoints == 0)
+        {
+            death();
+        }
+    }
+    
+    // private void score()
+    // {
+        // if(scrollHight == 299)
+        // {
+            // score += 50;
+        // }
+    // }
 }

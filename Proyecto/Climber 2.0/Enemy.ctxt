@@ -18,7 +18,6 @@ comment7.params=
 comment7.target=void\ fall()
 comment8.params=
 comment8.target=void\ checkFall()
-comment8.text=private\ void\ moveToGround(ScrollActor\ ground){\r\n\ \ \ \ \ \ \ \ int\ groundHeight\ \=\ ground.getImage().getHeight();\r\n\ \ \ \ \ \ \ \ int\ newY\ \=\ ground.getGlobalY()\ -\ (groundHeight\ +\ getImage().getHeight())/2;\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ setGlobalLocation(getGlobalX(),\ newY);\r\n\ \ \ \ \ \ \ \ jumping\ \=\ false;\r\n\ \ \ \ }\r\n
 comment9.params=
 comment9.target=void\ death()
 numComments=10
