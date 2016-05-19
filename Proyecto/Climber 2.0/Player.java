@@ -50,6 +50,7 @@ public class Player extends Human
             checkKey();
         }
         platformAbove();
+        death();
         
         animationCounter++;
     }    
@@ -182,7 +183,7 @@ public class Player extends Human
         }
     }
     
-    private void animationSpeedLeft()
+    private void animationSpeedLeft() 
     {
         if(animationCounter % 4 == 0){
             animateLeft();
@@ -190,19 +191,19 @@ public class Player extends Human
     }
     
     public void death(){
+        if(isTouching(Knife.class))
+        {
+            lifePoints-=1;
+        }
     }
     
-
     private void lifes()
     {
-        if(isTouching(Enemy.class))
-        {
-            lifePoints -= 1;
-        }
-        else if(lifePoints == 0)
+        if(isTouching(Knife.class))
         {
             death();
         }
+
     }
     
     // private void score()

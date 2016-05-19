@@ -100,7 +100,13 @@ public class Enemy extends Human
         }
     }
     
-    public void death(){
-        
-    }
+    // public void death(){
+        // if(isTouching(Knife.class))
+        // {
+            // removeTouching(Enemy.class);
+        // }
+        // else
+        // {
+        // }
+    //}
 }
