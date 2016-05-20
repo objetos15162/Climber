@@ -15,5 +15,25 @@ public class Level_1 extends Level
      */
     public Level_1()
     {
+        prepare();
+    }
+    
+    public void prepare(){
+        
+        addObject(new Player(), 80, 1966);
+        addObject(new Block(), 32, 1984);
+        addObject(new Block(), 96, 1984);
+        addObject(new Block(), 160, 1984);
+        addObject(new Block(), 224, 1984);
+        addObject(new Block(), 288, 1984);
+        addObject(new Block(), 352, 1984);
+        addObject(new Block(), 416, 1984);
+        addObject(new Block(), 480, 1984);
+        addObject(new Block(), 544, 1984);
+        addObject(new Block(), 608, 1984);
+        addObject(new Block(), 672, 1984);
+        addObject(new Block(), 736, 1984);
+        addObject(new Block(), 800, 1984);
+        addObject(new Block(), 864, 1984);
     }
 }

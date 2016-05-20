@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Player here.
+ * This is the class that controls everything about the main character.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Abraham Berrones B.
+ * @version 5.19
  */
 public class Player extends Human
 {
@@ -54,6 +54,9 @@ public class Player extends Human
         animationCounter++;
     }    
     
+    /**
+     * Checks for keys for actions and movement.
+     */
     private void checkKey(){
         if(Greenfoot.isKeyDown("z") && getJumping() == false){
             jump();
@@ -74,6 +77,9 @@ public class Player extends Human
         }
     }
     
+    /**
+     * Moves the character to the right.
+     */
     private void moveRight(){
         if(getXFromCamera() > -10 && getXFromCamera() < 10){
             getWorld().moveCamera(speed);
@@ -82,6 +88,10 @@ public class Player extends Human
         animationSpeedRight();
     }
     
+    
+    /**
+     * Animates the character when moving right.
+     */
     private void animateRight(){
         if(frame == 1){
             setImage(run1);
@@ -112,6 +122,9 @@ public class Player extends Human
         frame ++;
     }
     
+    /**
+     * Animates the character when moving left.
+     */
     private void animateLeft(){
         if(frame == 1){
             setImage(run1_l);
@@ -142,6 +155,9 @@ public class Player extends Human
         frame ++;
     }
     
+    /**
+     * Moves the character left.
+     */
     private void moveLeft(){
         if(getXFromCamera() > -10 && getXFromCamera() < 10){
             getWorld().moveCamera(-speed);
@@ -151,7 +167,7 @@ public class Player extends Human
     }
     
     /**
-     * 
+     * Makes the character fall when on the air.
      */
     private void fall(){
         if(getYFromCamera() > -20 && getYFromCamera() < 20){
@@ -166,7 +182,7 @@ public class Player extends Human
     }
   
     /**
-     * 
+     * Checks if the character is mid-air.
      */
     private void checkFall(){
         if(onGround()){
@@ -177,6 +193,9 @@ public class Player extends Human
         }
     }
     
+    /**
+     * Makes the character jump, adding a negative value to the Y coordinate.
+     */
     private void jump(){
         if(getYFromCamera() > -20 && getYFromCamera() < 20){
             getWorld().setCameraLocation(getGlobalX(),getGlobalY() + vSpeed);
@@ -186,6 +205,9 @@ public class Player extends Human
         fall();
     }
     
+    /**
+     * Sets the right animation speed for right movement.
+     */
     private void animationSpeedRight()
     {
         if(animationCounter % 4 == 0){
@@ -194,6 +216,9 @@ public class Player extends Human
         }
     }
     
+    /**
+     * Sets the right animation speed for left movement.
+     */
     private void animationSpeedLeft() 
     {
         if(animationCounter % 4 == 0){
@@ -201,15 +226,17 @@ public class Player extends Human
         }
     }
     
+    /**
+     * Takes away a life point and respawns the character.
+     */
     public void death(){
         lifePoints -= 1;
     }
     
+    /**
+     * Recovers the variable that indicates faced direction.
+     */
     public boolean getFacingRight(){
         return facingRight;
-    }
-    
-    private void lifes()
-    {
     }
 }

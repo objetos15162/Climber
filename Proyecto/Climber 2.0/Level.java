@@ -13,6 +13,8 @@ public class Level extends ScrollWorld
     private Counter playersKnives;
     private Counter playersLives;
     private Counter maxHeight;
+    private int startingX = 80;
+    private int startingY = 1966;
     
     /**
      * Constructor for objects of class MyWorld.
@@ -21,7 +23,7 @@ public class Level extends ScrollWorld
     public Level()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(800, 600, 1, 1000, 2000); 
+        super(800, 600, 1, 900, 2000); 
         timerDisplay = new Counter("Time: ");
         playersKnives = new Counter("Knives: ");
         timer = new SimpleTimer();
@@ -33,6 +35,10 @@ public class Level extends ScrollWorld
         addObject(timerDisplay, 400, 20);
         addObject(playersKnives, 100, 20);
         prepare();
+    }
+    
+    public void respawn(){
+        addObject(new Player(), startingX, startingY);
     }
 
     public void act(){

@@ -26,20 +26,33 @@ public class Human extends ScrollActor
     {
     }    
     
+    /**
+     * Returns the canMove variable.
+     * @return canMove
+     */
     public boolean getCanMove(){
         return canMove;
     }
     
+    /**
+     * Returns the jumping boolean.
+     * @return jumping
+     */
     public boolean getJumping(){
         return jumping;
     }
     
+    /**
+     * Returns the throwing variable to see if a character is currently throwing.
+     * @return throwing
+     */
     public boolean getThrowing(){
         return throwing;
     }
     
     /**
-     * 
+     * Returns a boolean that tells you whether the character is touching ground or not.
+     * @return boolean
      */
     public boolean onGround(){
         int spriteHeight = getImage().getHeight();
@@ -58,6 +71,9 @@ public class Human extends ScrollActor
         }
     }
     
+    /**
+     * Returns a boolean that tells you if there´s a roof over your head.
+     */
     public boolean platformAbove(){
         int spriteHeight = getImage().getHeight();
         int yDistance = (int)(spriteHeight/-2);
@@ -75,6 +91,10 @@ public class Human extends ScrollActor
         }
     }
     
+    /**
+     * Places the character in the correct position after touching the ceiling.
+     * @param ceiling The object that the character is coliding with.
+     */
     public void bopHead(ScrollActor ceiling){
         int ceilingHeight = ceiling.getImage().getHeight();
         int newY = ceiling.getGlobalY() + (ceilingHeight + getImage().getHeight())/2;
@@ -83,7 +103,8 @@ public class Human extends ScrollActor
     }
     
     /**
-     * 
+     * Places the character in the correct position after touching the ground.
+     * @param ground The object that the character is coliding with.
      */
     public void moveToGround(ScrollActor ground){
         int groundHeight = ground.getImage().getHeight();
@@ -94,22 +115,38 @@ public class Human extends ScrollActor
         jumping = false;
     }
     
+    /**
+     * Exists only as a placeholder for the real method.
+     */
     public void death(){
         
     }   
     
+    /**
+     * Changes the variable that allows a character to move.
+     */
     public void changeCanMove(boolean movement){
         canMove = movement;
     }
     
+    /**
+     * Changes the variable that allows a character to jump.
+     */
     public void changeJumping(boolean onAir){
         jumping = onAir;
     }
     
+    /**
+     * Changes the variable that allows a character to throw.
+     */
     public void changeThrowing(boolean onThrow){
         throwing = onThrow;
     }
     
+    /**
+     * Creates and "throws" a Knife object.
+     * @param facingRight The direction indicator.
+     */
     public void throwKnife(boolean facingRight){
         if(!throwing){
             if(knives > 0){
@@ -126,6 +163,9 @@ public class Human extends ScrollActor
         }
     }
     
+    /**
+     * Adds a Knife object to the inventory.
+     */
     public void addKnife(){
         knives += 1;
         World w = getWorld();
@@ -133,6 +173,9 @@ public class Human extends ScrollActor
         l.addKnife();
     }
     
+    /**
+     * Removes a Knife object from the inventory.
+     */
     public void removeKnife(){
         knives -= 1;
         World w = getWorld();
