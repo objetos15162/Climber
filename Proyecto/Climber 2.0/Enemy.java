@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
 
 /**
  * Write a description of class Enemy here.
@@ -10,7 +11,7 @@ public class Enemy extends Human
 {
     private int vSpeed = 0;
     private int acceleration = 1;
-    private int speed = 4;
+    private int speed = 2;
     private int frame = 1;
     
     private GreenfootImage run1 = new GreenfootImage("Enemy_right_side1.png");
@@ -37,7 +38,32 @@ public class Enemy extends Human
     
     private void checkMove()
     {
-        
+        Player play1 = searchPlayer();
+        if(play1 != null){
+            if(play1.getGlobalX() < getGlobalX()){
+                moveLeft();
+            }
+            else{
+                moveRight();
+            }
+        }
+    }
+    
+    private Player searchPlayer(){
+        List<Player> a;
+        a = getObjectsInRange(260, Player.class);
+        if(!a.isEmpty()){
+            Player person = a.get(a.size()-1);
+            if(person != null){
+                return person;
+            }
+            else{
+                return null;
+            }
+        }
+        else{
+            return null;
+        }
     }
     
     private void moveRight(){
@@ -100,13 +126,4 @@ public class Enemy extends Human
         }
     }
     
-    // public void death(){
-        // if(isTouching(Knife.class))
-        // {
-            // removeTouching(Enemy.class);
-        // }
-        // else
-        // {
-        // }
-    //}
 }

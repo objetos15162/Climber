@@ -26,6 +26,6 @@ public class Help extends World
         addObject(text3,getWidth()/2,300);
         
         Label text4 = new Label("(X) Throw a knife",50);
-        addObject(text4,getWidth()/2,400);
+        addObject(text4,getWidth()/2,401);
     }
 }

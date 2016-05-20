@@ -11,6 +11,8 @@ public class Level extends ScrollWorld
     private SimpleTimer timer;
     private Counter timerDisplay;
     private Counter playersKnives;
+    private Counter playersLives;
+    private Counter maxHeight;
     
     /**
      * Constructor for objects of class MyWorld.
@@ -19,11 +21,16 @@ public class Level extends ScrollWorld
     public Level()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(800, 600, 1, 2000, 1000); 
+        super(800, 600, 1, 1000, 2000); 
         timerDisplay = new Counter("Time: ");
         playersKnives = new Counter("Knives: ");
         timer = new SimpleTimer();
-        addObject(timerDisplay, 300, 20);
+        playersLives = new Counter("Lives: ");
+        maxHeight = new Counter("Height: ");
+        playersLives.setValue(3);
+        addObject(maxHeight, 700, 20);
+        addObject(playersLives, 200, 20);
+        addObject(timerDisplay, 400, 20);
         addObject(playersKnives, 100, 20);
         prepare();
     }
@@ -34,6 +41,16 @@ public class Level extends ScrollWorld
     
     public Counter getTimer(){
         return timerDisplay;
+    }
+    
+    public Counter getLives(){
+        return playersLives;
+    }
+    
+    public void checkHeight(int height){
+        if(maxHeight.getValue() < (height - getFullHeight())/-1){
+            maxHeight.setValue((height - getFullHeight())/-1);
+        }
     }
     
     private void tick(){
@@ -57,15 +74,6 @@ public class Level extends ScrollWorld
      */
     private void prepare()
     {        
-        Spikes spikes = new Spikes();
-        addObject(spikes,362,355);
-        Player player = new Player();
-        addObject(player,443,211);
-        Block block = new Block();
-        addObject(block,457,268);
-        Bomb bomb = new Bomb();
-        addObject(bomb,537,352);
-        Ice ice = new Ice();
-        addObject(ice,608,240);
+        
     }
 }
