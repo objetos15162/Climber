@@ -16,7 +16,7 @@ public class Player extends Human
     private int frame = 1;
     private int lifePoints = 3;
     private int score = 0;
-    private int knives = 0;
+    private int knives = 1;
     private boolean facingRight = true;
     
     
@@ -240,6 +240,7 @@ public class Player extends Human
             if(l.getPlayersLives().getValue() == 0){
                 Label text = new Label("You lose",50);
                 getWorld().addObject(text,(getWorld().getWidth()/2),(getWorld().getHeight()/2));
+                l.addScore();
                 Scoring st = new Scoring(l.getScore());
                 Greenfoot.delay(50);
                 Greenfoot.setWorld(st);

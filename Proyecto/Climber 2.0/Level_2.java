@@ -112,7 +112,7 @@ public class Level_2 extends Level
         addObject(knife,312,359);
         Knife knife2 = new Knife();
         addObject(knife2,563,255);
-        
+
         Block block13 = new Block();
         addObject(block13,37,236);
         block13.setLocation(26,250);
@@ -125,5 +125,31 @@ public class Level_2 extends Level
         addObject(block16,83,149);
         block16.setLocation(90,148);
         block14.setLocation(89,250);
-    }
+        Spikes spikes6 = new Spikes();
+        addObject(spikes6,726,253);
+        spikes6.setLocation(723,248);
+        Spikes spikes2 = new Spikes();
+        addObject(spikes2,494,252);
+        spikes2.setLocation(156,202);
+        Block block123 = new Block();
+        addObject(block123,297,244);
+        block123.setLocation(293,243);
+        Block block221 = new Block();
+        addObject(block221,325,161);
+        block221.setLocation(356,244);
+        Block block343 = new Block();
+        addObject(block343,331,120);
+        block343.setLocation(224,147);
+        removeObject(ice);
+        removeObject(bomb3);
+        Block block20 = new Block();
+        addObject(block20,80,420);
+        block20.setLocation(31,463);
+    Block block21 = new Block();
+addObject(block21,668,420);
+Block block22 = new Block();
+addObject(block22,700,423);
+block22.setLocation(774,465);
+block21.setLocation(715,465);
+}
 }
