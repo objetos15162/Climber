@@ -20,6 +20,7 @@ public class Scoring extends World
         score = new Counter("Total height: ");
         setScore(newScore);
         addObject(score, getWidth()/2, getHeight()/2);
+        addObject(new ExitButton(), 100,100);
     }
     
     private void setScore(int num){

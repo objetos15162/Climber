@@ -31,6 +31,8 @@ public class Level extends ScrollWorld
         playersLives = new Counter("Lives: ");
         maxHeight = new Counter("Height: ");
         playersLives.setValue(3);
+        totalHeight = new Counter("Total Score: ");
+        totalHeight.setValue(0);
         addObject(maxHeight, 700, 20);
         addObject(playersLives, 200, 20);
         addObject(timerDisplay, 400, 20);
@@ -78,6 +80,14 @@ public class Level extends ScrollWorld
     
     public void addKnife(){
         playersKnives.add(1);
+    }
+    
+    public Counter getPlayersLives(){
+        return playersLives;
+    }
+    
+    public void removeLife(){
+        playersLives.add(-1);
     }
     
     public void removeKnife(){

@@ -230,18 +230,20 @@ public class Player extends Human
      * Takes away a life point and respawns the character.
      */
     public void death(){
-        lifePoints -= 1;
-        if(lifePoints >= 0){
-            World w = getWorld();
-            Level l = (Level)w;
+        World w = getWorld();
+        Level l = (Level)w;
+        if(l.getPlayersLives().getValue() > 0){
+            l.removeLife();
             l.respawn();
         }
         else{
-            Label text = new Label("You lose",50);
-            getWorld().addObject(text,(getWorld().getWidth()/2),(getWorld().getHeight()/2));
-            Menu st = new Menu();
-            Greenfoot.delay(50);
-            Greenfoot.setWorld(st);
+            if(l.getPlayersLives().getValue() == 0){
+                Label text = new Label("You lose",50);
+                getWorld().addObject(text,(getWorld().getWidth()/2),(getWorld().getHeight()/2));
+                Scoring st = new Scoring(l.getScore());
+                Greenfoot.delay(50);
+                Greenfoot.setWorld(st);
+            }
         }
         getWorld().removeObject(this);
     }

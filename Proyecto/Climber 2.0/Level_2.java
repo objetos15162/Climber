@@ -16,6 +16,10 @@ public class Level_2 extends Level
     public Level_2()
     {
         prepare();
+        Door door = new Door();
+        addObject(door,48,89);
+        door.setLocation(41,83);
+        door.setCurrentLevel(2);
     }
 
     /**
@@ -108,9 +112,7 @@ public class Level_2 extends Level
         addObject(knife,312,359);
         Knife knife2 = new Knife();
         addObject(knife2,563,255);
-        Door door = new Door();
-        addObject(door,48,89);
-        door.setLocation(41,83);
+        
         Block block13 = new Block();
         addObject(block13,37,236);
         block13.setLocation(26,250);

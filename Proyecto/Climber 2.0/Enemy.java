@@ -66,7 +66,7 @@ public class Enemy extends Human
         }
     }
     
-    private void moveRight(){
+    public void moveRight(){
         setGlobalLocation(getGlobalX() + speed, getGlobalY());
         
         if(animationCounter % 4 == 0){
@@ -104,7 +104,7 @@ public class Enemy extends Human
         frame ++;
     }
     
-    private void moveLeft(){
+    public void moveLeft(){
         setGlobalLocation(getGlobalX() - speed, getGlobalY());
         
         if(animationCounter % 4 == 0){

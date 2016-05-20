@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ThrowingEnemy extends Enemy
 {
-    private int speed = 3;
+    private int speed = 2;
     private int animationCounter = 0;
     private int knives = 1;
     private boolean facingRight = true;
@@ -77,19 +77,4 @@ public class ThrowingEnemy extends Enemy
         }
     }
     
-    private void moveRight(){
-        setGlobalLocation(getGlobalX() + speed, getGlobalY());
-        
-        if(animationCounter % 4 == 0){
-            animateRight();
-        }
-    }
-    
-    private void moveLeft(){
-        setGlobalLocation(getGlobalX() - speed, getGlobalY());
-        
-        if(animationCounter % 4 == 0){
-            super.animateLeft();
-        }
-    }
 }
