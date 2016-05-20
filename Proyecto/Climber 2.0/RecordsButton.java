@@ -14,6 +14,9 @@ public class RecordsButton extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+        if(Greenfoot.mouseClicked(this)){
+            getWorld().addObject(new ScoreBoard(480, 350), getWorld().getWidth() / 2, getWorld().getHeight() / 2);
+            getWorld().addObject(new ExitButton(), 100, 100);
+        }
     }    
 }

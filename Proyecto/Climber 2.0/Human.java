@@ -109,7 +109,6 @@ public class Human extends ScrollActor
     public void moveToGround(ScrollActor ground){
         int groundHeight = ground.getImage().getHeight();
         int newY = ground.getGlobalY() - (groundHeight + getImage().getHeight())/2;
-        newY -=2;
         
         setGlobalLocation(getGlobalX(), newY);
         jumping = false;

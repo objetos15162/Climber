@@ -36,7 +36,7 @@ public class Enemy extends Human
         animationCounter++;
     }
     
-    private void checkMove()
+    public void checkMove()
     {
         Player play1 = searchPlayer();
         if(play1 != null){
@@ -49,7 +49,7 @@ public class Enemy extends Human
         }
     }
     
-    private Player searchPlayer(){
+    public Player searchPlayer(){
         List<Player> a;
         a = getObjectsInRange(260, Player.class);
         if(!a.isEmpty()){
@@ -74,7 +74,7 @@ public class Enemy extends Human
         }
     }
     
-    private void animateRight(){
+    public void animateRight(){
         if(frame == 1){
             setImage(run1);
         }
@@ -89,7 +89,7 @@ public class Enemy extends Human
         frame ++;
     }
     
-    private void animateLeft(){
+    public void animateLeft(){
         if(frame == 1){
             setImage(run1_l);
         }
@@ -117,7 +117,7 @@ public class Enemy extends Human
         vSpeed = vSpeed + acceleration;
     }
     
-    private void checkFall(){
+    public void checkFall(){
         if(onGround()){
             vSpeed = 0;
         }

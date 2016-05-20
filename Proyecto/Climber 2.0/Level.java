@@ -13,8 +13,9 @@ public class Level extends ScrollWorld
     private Counter playersKnives;
     private Counter playersLives;
     private Counter maxHeight;
+    private Counter totalHeight;
     private int startingX = 80;
-    private int startingY = 1966;
+    private int startingY = 544;
     
     /**
      * Constructor for objects of class MyWorld.
@@ -23,7 +24,7 @@ public class Level extends ScrollWorld
     public Level()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(800, 600, 1, 900, 2000); 
+        super(800, 600, 1, 800, 600); 
         timerDisplay = new Counter("Time: ");
         playersKnives = new Counter("Knives: ");
         timer = new SimpleTimer();
@@ -35,6 +36,15 @@ public class Level extends ScrollWorld
         addObject(timerDisplay, 400, 20);
         addObject(playersKnives, 100, 20);
         prepare();
+    }
+    
+    public void addScore(){
+        totalHeight.setValue(totalHeight.getValue() + maxHeight.getValue());
+        maxHeight.setValue(0);
+    }
+    
+    public int getScore(){
+        return totalHeight.getValue();
     }
     
     public void respawn(){
@@ -80,6 +90,19 @@ public class Level extends ScrollWorld
      */
     private void prepare()
     {        
-        
+        addObject(new Player(), 80, 544);
+        addObject(new Block(), 32, 584);
+        addObject(new Block(), 96, 584);
+        addObject(new Block(), 160, 584);
+        addObject(new Block(), 224, 584);
+        addObject(new Block(), 288, 584);
+        addObject(new Block(), 352, 584);
+        addObject(new Block(), 416, 584);
+        addObject(new Block(), 480, 584);
+        addObject(new Block(), 544, 584);
+        addObject(new Block(), 608, 584);
+        addObject(new Block(), 672, 584);
+        addObject(new Block(), 736, 584);
+        addObject(new Block(), 800, 584);
     }
 }

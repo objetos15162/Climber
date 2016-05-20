@@ -55,7 +55,6 @@ public class Spikes extends Block
             Actor pl = getOneIntersectingObject(Player.class);
             Player person = (Player) pl;
             person.death();
-            removeTouching(Human.class);
         }
     }
 }

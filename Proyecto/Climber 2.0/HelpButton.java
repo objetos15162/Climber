@@ -18,5 +18,6 @@ public class HelpButton extends Actor
             Help newHelp = new Help();
             Greenfoot.setWorld(newHelp);
         }
+        
     }    
 }

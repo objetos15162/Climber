@@ -15,7 +15,7 @@ public class Help extends World
      */
     public Help()
     {    
-        super(960, 640, 1); 
+        super(800, 600, 1); 
         Label text1 = new Label("(->) Move to right",50);
         addObject(text1,getWidth()/2,100);
         
@@ -27,5 +27,6 @@ public class Help extends World
         
         Label text4 = new Label("(X) Throw a knife",50);
         addObject(text4,getWidth()/2,401);
+        addObject(new ExitButton(), 100, 100);
     }
 }
