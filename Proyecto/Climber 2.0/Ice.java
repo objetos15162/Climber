@@ -56,6 +56,8 @@ public class Ice extends Block
                 person.setGlobalLocation(person.getGlobalX()+5, person.getGlobalY());
             }
             else{
+                makeSlide = false;
+                slider = null;
                 person.changeCanMove(true);
             }
         }
@@ -64,6 +66,8 @@ public class Ice extends Block
                 person.setGlobalLocation(person.getGlobalX()-5, person.getGlobalY());
             }
             else{
+                makeSlide = false;
+                slider = null;
                 person.changeCanMove(true);
             }
         }

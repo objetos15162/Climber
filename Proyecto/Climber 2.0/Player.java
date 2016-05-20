@@ -48,9 +48,7 @@ public class Player extends Human
     public void act() 
     {
         checkFall();
-        if(getCanMove()){
-            checkKey();
-        }
+        checkKey();
         platformAbove();
         
         animationCounter++;
@@ -60,13 +58,15 @@ public class Player extends Human
         if(Greenfoot.isKeyDown("z") && getJumping() == false){
             jump();
         }
-        if(Greenfoot.isKeyDown("right")){
-            moveRight();
-            facingRight = true;
-        }
-        if(Greenfoot.isKeyDown("left")){
-            moveLeft();
-            facingRight = false;
+        if(getCanMove()){
+            if(Greenfoot.isKeyDown("right")){
+                moveRight();
+                facingRight = true;
+            }
+            if(Greenfoot.isKeyDown("left")){
+                moveLeft();
+                facingRight = false;
+            }
         }
         if(Greenfoot.isKeyDown("x") && getThrowing() == false){
             throwKnife(facingRight);
@@ -157,6 +157,9 @@ public class Player extends Human
         if(getYFromCamera() > -20 && getYFromCamera() < 20){
             getWorld().setCameraLocation(getGlobalX(),getGlobalY() + vSpeed);
         }
+        World w = getWorld();
+        Level currentLevel = (Level)(w);
+        currentLevel.checkHeight(getGlobalY());
         setGlobalLocation(getGlobalX(), getGlobalY() + vSpeed);
         vSpeed = vSpeed + acceleration;
         changeJumping(true);
