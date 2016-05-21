@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Bomb here.
+ * This objects explodes and disapears when touched.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Abraham B.
  */
 public class Bomb extends Block
 {
@@ -26,12 +25,18 @@ public class Bomb extends Block
         }
     }    
     
+    /**
+     * Checks for player tocuh.
+     */
     private void checkPlayer(){
         if(isTouching(Human.class)){
             ready = true;
         }
     }
     
+    /**
+     * Prepares the object to explode and disappea
+     */
     private void blowUp(){
         if(explosion % 5 == 0){
             blowUpAnimation();
@@ -44,6 +49,9 @@ public class Bomb extends Block
         explosion++;
     }
     
+    /**
+     * Animates the explosion.
+     */
     private void blowUpAnimation(){
         if(frame == 1){
             setImage(bomb1);
@@ -53,5 +61,5 @@ public class Bomb extends Block
             frame = 0;
         }        
         frame++;
-    }
+     }
 }

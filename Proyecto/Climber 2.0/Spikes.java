@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Spikes here.
+ * The objects of this class move in a vertical infinite loop and kill on touch.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Abraham B
  */
 public class Spikes extends Block
 {   
@@ -27,6 +26,9 @@ public class Spikes extends Block
         checkCollision();
     }    
     
+    /**
+     * Makes the block move verticaly.
+     */
     private void move(){
         if(goingUp && getGlobalY() > startingY -100){
             setGlobalLocation(getGlobalX(),getGlobalY() - vSpeed);
@@ -41,6 +43,9 @@ public class Spikes extends Block
         }
     }
     
+    /**
+     * Changes movement direction.
+     */
     private void changeDirection(){
         if(goingUp){
             goingUp = false;
@@ -50,6 +55,9 @@ public class Spikes extends Block
         }
     }
     
+    /**
+     * Checks for collision with Player.
+     */
     private void checkCollision(){
         if(isTouching(Player.class)){
             Actor pl = getOneIntersectingObject(Player.class);

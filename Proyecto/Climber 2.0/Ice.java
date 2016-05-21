@@ -2,10 +2,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
 
 /**
- * Write a description of class Ice here.
+ * When touched, makes the character slide.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Abraham B.
  */
 public class Ice extends Block
 {
@@ -25,6 +24,9 @@ public class Ice extends Block
         }
     }   
     
+    /**
+     * Checks if the player has touched the surface.
+     */
     private void checkCollision(){
         List<Player> a;
         a = getObjectsInRange(47, Player.class);
@@ -36,6 +38,10 @@ public class Ice extends Block
         }
    }
     
+   /**
+    * Makes an object available for sliding.
+    * @param person The character to make slide.
+    */
     private void changeSlide(Player person){
         if(makeSlide){
             makeSlide = false;
@@ -46,6 +52,10 @@ public class Ice extends Block
         slider = person;
     }
     
+    /**
+     * Makes character slide.
+     * @param person The character to slide.
+     */
     private void slide(Player person){
         int spriteWidth = getImage().getWidth();    
         int endOfSprite = getGlobalX() + (int)(spriteWidth/2);

@@ -1,13 +1,16 @@
 #BlueJ class context
 comment0.target=Spikes
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Spikes\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ objects\ of\ this\ class\ move\ in\ a\ vertical\ infinite\ loop\ and\ kill\ on\ touch.\r\n\ \r\n\ @author\ Abraham\ B\r\n
 comment1.params=
 comment1.target=void\ act()
 comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Spikes\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment2.params=
 comment2.target=void\ move()
+comment2.text=\r\n\ Makes\ the\ block\ move\ verticaly.\r\n
 comment3.params=
 comment3.target=void\ changeDirection()
+comment3.text=\r\n\ Changes\ movement\ direction.\r\n
 comment4.params=
 comment4.target=void\ checkCollision()
+comment4.text=\r\n\ Checks\ for\ collision\ with\ Player.\r\n
 numComments=5
