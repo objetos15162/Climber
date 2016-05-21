@@ -2,21 +2,20 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
 
 /**
- * Write a description of class Enemy here.
+ * The main enemy of the game.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Gerardo H.
  */
 public class Enemy extends Human
 {
     private int vSpeed = 0;
     private int acceleration = 1;
-    private int speed = 2;
+    private int speed = 1;
     private int frame = 1;
     
     private GreenfootImage run1 = new GreenfootImage("Enemy_right_side1.png");
-    private GreenfootImage run2 = new GreenfootImage("Enemy_right_side1.png");
-    private GreenfootImage run3 = new GreenfootImage("Enemy_right_side1.png");
+    private GreenfootImage run2 = new GreenfootImage("Enemy_right_side2.png");
+    private GreenfootImage run3 = new GreenfootImage("Enemy_right_side3.png");
     
     private GreenfootImage run1_l = new GreenfootImage("Enemy_left_side1.png");
     private GreenfootImage run2_l = new GreenfootImage("Enemy_left_side2.png");
@@ -31,11 +30,28 @@ public class Enemy extends Human
     {
         checkFall();
         checkMove();
+        checkCollision();
         platformAbove();
         
         animationCounter++;
     }
     
+    /**
+     * Checks collision with Player.
+     */
+    public void checkCollision(){
+        if(isTouching(Player.class)){
+            Actor a = getOneIntersectingObject(Player.class);
+            Player p = (Player)a;
+            if(p != null){
+                p.death();
+            }
+        }
+    }
+    
+    /**
+     * Checks for movement conditions.
+     */
     public void checkMove()
     {
         Player play1 = searchPlayer();
@@ -49,6 +65,9 @@ public class Enemy extends Human
         }
     }
     
+    /**
+     * Searches for the player on a given range.
+     */
     public Player searchPlayer(){
         List<Player> a;
         a = getObjectsInRange(260, Player.class);
@@ -66,6 +85,9 @@ public class Enemy extends Human
         }
     }
     
+    /**
+     * Moves the character roght.
+     */
     public void moveRight(){
         setGlobalLocation(getGlobalX() + speed, getGlobalY());
         
@@ -74,6 +96,9 @@ public class Enemy extends Human
         }
     }
     
+    /**
+     * Playes the animation for right movement.
+     */
     public void animateRight(){
         if(frame == 1){
             setImage(run1);
@@ -89,6 +114,9 @@ public class Enemy extends Human
         frame ++;
     }
     
+    /**
+     * Plays the animation for left movement.
+     */
     public void animateLeft(){
         if(frame == 1){
             setImage(run1_l);
@@ -104,6 +132,9 @@ public class Enemy extends Human
         frame ++;
     }
     
+    /**
+     * Moves the character left.
+     */
     public void moveLeft(){
         setGlobalLocation(getGlobalX() - speed, getGlobalY());
         
@@ -112,11 +143,18 @@ public class Enemy extends Human
         }
     }
     
+    
+    /**
+     * Makes character fall to ground.
+     */
     private void fall(){
         setGlobalLocation(getGlobalX(), getGlobalY() + vSpeed);
         vSpeed = vSpeed + acceleration;
     }
     
+    /**
+     * Checks if the character is mid-air.
+     */
     public void checkFall(){
         if(onGround()){
             vSpeed = 0;

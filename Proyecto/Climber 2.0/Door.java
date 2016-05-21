@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Door here.
+ * This class sends the character to the next level, it works as a goal.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Abraham B.
  */
 public class Door extends ScrollActor
 {
@@ -19,6 +18,9 @@ public class Door extends ScrollActor
         check();
     }    
     
+    /**
+     * Checks if the player has touched thee object and sends him to the next level.
+     */
     private void check(){
         World w = getWorld();
         Level l = (Level)w;
@@ -37,6 +39,9 @@ public class Door extends ScrollActor
         }
     }
     
+    /**
+     * Sets the level in which the object is.
+     */
     public void setCurrentLevel(int c){
         currentLevel = c;
     }

@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class ThrowingEnemy here.
+ * This makes the enemy able to throw knives.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Abraham B.
  */
 public class ThrowingEnemy extends Enemy
 {
@@ -22,15 +21,14 @@ public class ThrowingEnemy extends Enemy
     {
         checkFall();
         checkMove();
+        checkCollision();
         platformAbove();
-        checkThrow();
         animationCounter++;
     }    
-    
-    public void checkThrow(){
-        
-    }
-    
+
+    /**
+     * Checks if the character meets conditions for movement.
+     */
     public void checkMove()
     {
         Player play1 = searchPlayer();
@@ -50,26 +48,36 @@ public class ThrowingEnemy extends Enemy
         }
     }
     
+    /**
+     * Makes the character throw a knife.
+     * @param facingRight The indicatior of the direction.
+     */
     public void throwKnife(boolean facingRight){
         if(!throwing){
             if(knives > 0){
                 removeKnife();
                 Knife k = new Knife();
                 if(facingRight){
-                    getWorld().addObject(k,getGlobalX() + 20, getGlobalY());
+                    getWorld().addObject(k,getGlobalX() + 40, getGlobalY());
                 }
                 else{
-                    getWorld().addObject(k,getGlobalX() - 20, getGlobalY());            
+                    getWorld().addObject(k,getGlobalX() - 40, getGlobalY());            
                 }
                 k.setDirection(facingRight);
             }
         }
     }
     
+    /**
+     * Removes a knife from the inventory.
+     */
     public void removeKnife(){
         knives -= 1;
     }
     
+    /**
+     * Refreshes the character's knives.
+     */
     private void refreshKnives(){
         if(animationCounter % 50 == 0){
             knives = 1;

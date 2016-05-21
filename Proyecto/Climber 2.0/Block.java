@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Block here.
+ * The base of every level.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Abraham B.
  */
 public class Block extends ScrollActor
 {

@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class HelpButton here.
+ * Prints the controls.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Gerardo H.
  */
 public class HelpButton extends Actor
 {

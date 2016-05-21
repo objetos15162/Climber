@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class RecordsButton here.
+ * Sends the player to the Records screen.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Gerardo H. 
  */
 public class RecordsButton extends Actor
 {

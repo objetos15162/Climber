@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Human here.
+ * This class contains all the general methods for human characters.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Abraham B.
  */
 public class Human extends ScrollActor
 {

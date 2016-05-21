@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class ExitButton here.
+ * This Button returns the player to the menu screen.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Abraham B.
+ * @version 5.17
  */
 public class ExitButton extends Actor
 {

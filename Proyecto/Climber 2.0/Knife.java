@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Knife here.
+ * This is a weapon class, it it thrown by characters to attack.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Gerardo H. 
  */
 public class Knife extends ScrollActor
 {
@@ -59,6 +58,16 @@ public class Knife extends ScrollActor
             else{
                 p.addKnife();
                 getWorld().removeObject(this);
+            }
+        }
+        else{
+            if(isTouching(Enemy.class)){
+                if(!recoverable){
+                    removeTouching(Enemy.class);
+                }
+                else{
+    
+                }
             }
         }
     }
