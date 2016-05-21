@@ -15,6 +15,10 @@ public class Level_3 extends Level
      */
     public Level_3()
     {
+        Door door = new Door();
+        addObject(door,713,89);
+        door.setLocation(760,99);
+        door.setCurrentLevel(3);
         prepare();
     }
 
@@ -127,9 +131,7 @@ public class Level_3 extends Level
         Block block20 = new Block();
         addObject(block20,689,208);
         block20.setLocation(774,160);
-        Door door = new Door();
-        addObject(door,713,89);
-        door.setLocation(760,99);
+        
         Bomb bomb5 = new Bomb();
         addObject(bomb5,519,174);
         bomb5.setLocation(520,160);
