@@ -7,15 +7,23 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ThrowingEnemy extends Enemy
 {
-    private int speed = 2;
-    private int animationCounter = 0;
-    private int knives = 1;
-    private boolean facingRight = true;
-    private boolean throwing = false;
+    private int speed;
+    private int animationCounter;
+    private int knives;
+    private boolean facingRight;
+    private boolean throwing;
+    
+    public ThrowingEnemy(){
+        super();
+        speed = 2;
+        animationCounter =0;
+        knives = 1;
+        facingRight = true;
+        throwing = false;
+    }
     
     /**
-     * Act - do whatever the ThrowingEnemy wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Act - Checks for things that may affect the character and decides whether to trow a knife or not.
      */
     public void act() 
     {

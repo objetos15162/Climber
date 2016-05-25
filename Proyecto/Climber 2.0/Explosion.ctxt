@@ -1,13 +1,15 @@
 #BlueJ class context
 comment0.target=Explosion
-comment0.text=\r\n\ This\ object\ is\ created\ when\ a\ Bomb\ block\ disappears.\r\n\ \r\n\ @author\ Abraham\ B.\r\n
+comment0.text=\r\n\ This\ object\ is\ created\ when\ a\ Bomb\ block\ disappears.\r\n\ \r\n\ @author\ Abraham\ B.\r\n\ @version\ 12.05.16\r\n
 comment1.params=
-comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Explosion\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment1.target=Explosion()
 comment2.params=
-comment2.target=void\ checkCollision()
-comment2.text=\r\n\ Checks\ if\ is\ thouching\ a\ character\ to\ cause\ damage.\r\n
+comment2.target=void\ act()
+comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Explosion\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment3.params=
-comment3.target=void\ checkTimer()
-comment3.text=\r\n\ Cheks\ the\ time\ to\ disappear.\r\n
-numComments=4
+comment3.target=void\ checkCollision()
+comment3.text=\r\n\ Checks\ if\ is\ thouching\ a\ character\ to\ cause\ damage.\r\n
+comment4.params=
+comment4.target=void\ checkTimer()
+comment4.text=\r\n\ Cheks\ the\ time\ to\ disappear.\r\n
+numComments=5

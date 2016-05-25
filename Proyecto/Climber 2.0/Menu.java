@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Menu here.
+ * The game's main menu.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Gerardo Heredia. 
+ * @version 0.2
  */
 public class Menu extends World
 {

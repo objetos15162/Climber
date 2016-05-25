@@ -9,41 +9,75 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Player extends Human
 {
     
-    private int vSpeed = 0;
-    private int acceleration = 1;
-    private int jumpStrength = 15;
-    private int speed = 4;
-    private int frame = 1;
-    private int lifePoints = 3;
-    private int score = 0;
-    private int knives = 1;
-    private boolean facingRight = true;
+    private int vSpeed;
+    private int acceleration;
+    private int jumpStrength;
+    private int speed;
+    private int frame;
+    private int lifePoints;
+    private int score;
+    private int knives;
+    private boolean facingRight;
     
     
-    private GreenfootImage run1 = new GreenfootImage("Human_side_1.png");
-    private GreenfootImage run2 = new GreenfootImage("Human_side_2.png");
-    private GreenfootImage run3 = new GreenfootImage("Human_side_3.png");
-    private GreenfootImage run4 = new GreenfootImage("Human_side_4.png");
-    private GreenfootImage run5 = new GreenfootImage("Human_side_5.png");
-    private GreenfootImage run6 = new GreenfootImage("Human_side_6.png");
-    private GreenfootImage run7 = new GreenfootImage("Human_side_7.png");
-    private GreenfootImage run8 = new GreenfootImage("Human_side_8.png");
+    private GreenfootImage run1;
+    private GreenfootImage run2;
+    private GreenfootImage run3;
+    private GreenfootImage run4;
+    private GreenfootImage run5;
+    private GreenfootImage run6;
+    private GreenfootImage run7;
+    private GreenfootImage run8;
     
-    private GreenfootImage run1_l = new GreenfootImage("Human_side_1_l.png");
-    private GreenfootImage run2_l = new GreenfootImage("Human_side_2_l.png");
-    private GreenfootImage run3_l = new GreenfootImage("Human_side_3_l.png");
-    private GreenfootImage run4_l = new GreenfootImage("Human_side_4_l.png");
-    private GreenfootImage run5_l = new GreenfootImage("Human_side_5_l.png");
-    private GreenfootImage run6_l = new GreenfootImage("Human_side_6_l.png");
-    private GreenfootImage run7_l = new GreenfootImage("Human_side_7_l.png");
-    private GreenfootImage run8_l = new GreenfootImage("Human_side_8_l.png");
+    private GreenfootImage run1_l;
+    private GreenfootImage run2_l;
+    private GreenfootImage run3_l;
+    private GreenfootImage run4_l;
+    private GreenfootImage run5_l;
+    private GreenfootImage run6_l;
+    private GreenfootImage run7_l;
+    private GreenfootImage run8_l;
     
     
-    private int animationCounter = 0;
+    private int animationCounter;
+    
+    
+    public Player(){
+        super();
+        vSpeed = 0;
+        acceleration = 1;
+        jumpStrength = 15;
+        speed = 4;
+        frame = 1;
+        lifePoints = 3;
+        score = 0;
+        knives = 1;
+        facingRight = true;
+        run1 = new GreenfootImage("Human_side_1.png");
+        run2 = new GreenfootImage("Human_side_2.png");
+        run3 = new GreenfootImage("Human_side_3.png");
+        run4 = new GreenfootImage("Human_side_4.png");
+        run5 = new GreenfootImage("Human_side_5.png");
+        run6 = new GreenfootImage("Human_side_6.png");
+        run7 = new GreenfootImage("Human_side_7.png");
+        run8 = new GreenfootImage("Human_side_8.png");
+    
+        run1_l = new GreenfootImage("Human_side_1_l.png");
+        run2_l = new GreenfootImage("Human_side_2_l.png");
+        run3_l = new GreenfootImage("Human_side_3_l.png");
+        run4_l = new GreenfootImage("Human_side_4_l.png");
+        run5_l = new GreenfootImage("Human_side_5_l.png");
+        run6_l = new GreenfootImage("Human_side_6_l.png");
+        run7_l = new GreenfootImage("Human_side_7_l.png");
+        run8_l = new GreenfootImage("Human_side_8_l.png");
+    
+    
+        animationCounter = 0;
+    }
     
     /**
-     * Act - do whatever the Player wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Act - Checks for player input to move.
+     * Checks for enviromento to interact with it.
      */
     public void act() 
     {

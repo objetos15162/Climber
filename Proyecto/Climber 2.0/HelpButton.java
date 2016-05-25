@@ -1,15 +1,17 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Prints the controls.
+ * Sets the world to Help, which contain the playe's controls.
  * 
  * @author Gerardo H.
+ * @version 0.2
  */
 public class HelpButton extends Actor
 {
     /**
-     * Act - do whatever the HelpButton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Act - Checks for mouse click.
+     * When clicked, sends player to the controls screen.
+     * 
      */
     public void act() 
     {

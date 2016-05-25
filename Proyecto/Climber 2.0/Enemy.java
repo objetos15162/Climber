@@ -5,26 +5,46 @@ import java.util.List;
  * The main enemy of the game.
  * 
  * @author Gerardo H.
+ * @version 0.7
  */
 public class Enemy extends Human
 {
-    private int vSpeed = 0;
-    private int acceleration = 1;
-    private int speed = 1;
-    private int frame = 1;
+    private int vSpeed;
+    private int acceleration;
+    private int speed;
+    private int frame;
     
-    private GreenfootImage run1 = new GreenfootImage("Enemy_right_side1.png");
-    private GreenfootImage run2 = new GreenfootImage("Enemy_right_side2.png");
-    private GreenfootImage run3 = new GreenfootImage("Enemy_right_side3.png");
+    private GreenfootImage run1;
+    private GreenfootImage run2;
+    private GreenfootImage run3;
     
-    private GreenfootImage run1_l = new GreenfootImage("Enemy_left_side1.png");
-    private GreenfootImage run2_l = new GreenfootImage("Enemy_left_side2.png");
-    private GreenfootImage run3_l = new GreenfootImage("Enemy_left_side3.png");
+    private GreenfootImage run1_l;
+    private GreenfootImage run2_l;
+    private GreenfootImage run3_l;
         
-    private int animationCounter = 0;
+    private int animationCounter;
+    
+    public Enemy(){
+        super();
+        vSpeed = 0;
+        acceleration = 1;
+        speed = 1;
+        frame = 1;
+        
+        run1 = new GreenfootImage("Enemy_right_side1.png");
+        run2 = new GreenfootImage("Enemy_right_side2.png");
+        run3 = new GreenfootImage("Enemy_right_side3.png");
+    
+        run1_l = new GreenfootImage("Enemy_left_side1.png");
+        run2_l = new GreenfootImage("Enemy_left_side2.png");
+        run3_l = new GreenfootImage("Enemy_left_side3.png");
+        
+        animationCounter = 0;
+        
+    }
+    
     /**
-     * Act - do whatever the Enemy wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Act - Checks for every aspect in the enviroment that might affect the character, and controls the autonomous movement.
      */
     public void act() 
     {

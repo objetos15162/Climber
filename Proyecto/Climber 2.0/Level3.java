@@ -1,19 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Level_3 here.
+ * Level 3's design.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Abraham Berrones. 
+ * @version 01.04.16
  */
-public class Level_3 extends Level
+public class Level3 extends Level
 {
 
     /**
      * Constructor for objects of class Level_3.
      * 
      */
-    public Level_3()
+    public Level3()
     {
         Door door = new Door();
         addObject(door,713,89);
@@ -131,7 +131,7 @@ public class Level_3 extends Level
         Block block20 = new Block();
         addObject(block20,689,208);
         block20.setLocation(774,160);
-        
+
         Bomb bomb5 = new Bomb();
         addObject(bomb5,519,174);
         bomb5.setLocation(520,160);
@@ -154,5 +154,14 @@ public class Level_3 extends Level
         block22.setLocation(625,456);
         enemy5.setLocation(210,120);
         enemy4.setLocation(277,116);
+        Block block39 = new Block();
+        addObject(block39,32,453);
+        Block block40 = new Block();
+        addObject(block40,80,454);
+        Block block50 = new Block();
+        addObject(block50,135,452);
+        block39.setLocation(156,452);
+        block40.setLocation(91,452);
+        block50.setLocation(40,451);
     }
 }

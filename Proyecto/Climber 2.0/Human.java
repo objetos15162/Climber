@@ -4,22 +4,35 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * This class contains all the general methods for human characters.
  * 
  * @author Abraham B.
+ * @version 15.4.16
  */
 public class Human extends ScrollActor
 {
-    private int vSpeed = 0;
-    private int acceleration = 1;
+    private int vSpeed;
+    private int acceleration;
     private boolean jumping;
-    private boolean canMove = true;
-    private boolean throwing = false;
-    private int speed = 4;
-    private int frame = 1;
-    private int animationCounter = 0;
-    private int knives = 0;
+    private boolean canMove;
+    private boolean throwing;
+    private int speed;
+    private int frame;
+    private int animationCounter;
+    private int knives;
+    
+    public Human(){
+        super();
+        vSpeed = 0;
+        acceleration = 1;
+        canMove = true;
+        throwing = false;
+        speed = 4;
+        frame = 1;
+        animationCounter = 0;
+        knives = 0;
+    }
     
     /**
-     * Act - do whatever the Player wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Act - The superclass for the character does nothing by itself.
+     * 
      */
     public void act() 
     {

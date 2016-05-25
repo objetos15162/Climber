@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Help here.
+ * This class prints the controls for the game.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Gerardo Heredia.
+ * @version 0.1
  */
 public class Help extends World
 {
@@ -16,10 +16,10 @@ public class Help extends World
     public Help()
     {    
         super(800, 600, 1); 
-        Label text1 = new Label("(->) Move to right",50);
+        Label text1 = new Label("(->) Move right",50);
         addObject(text1,getWidth()/2,100);
         
-        Label text2 = new Label("(<-) Move to left",50);
+        Label text2 = new Label("(<-) Move left",50);
         addObject(text2,getWidth()/2,200);
         
         Label text3 = new Label("(Z) Jump",50);

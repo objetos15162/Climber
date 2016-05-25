@@ -5,12 +5,23 @@ import java.util.List;
  * When touched, makes the character slide.
  * 
  * @author Abraham B.
+ * @version 12.04.16
  */
 public class Ice extends Block
 {
     
-    boolean makeSlide = false;
-    Player slider = null;
+    private boolean makeSlide;
+    private boolean descend;
+    private Player slider;
+    private Counter timer;
+    
+    public Ice(){
+        super();
+        makeSlide = false;
+        slider = null;
+        descend = false;
+        timer = null;
+    }
     
     /**
      * Act - do whatever the Ice wants to do. This method is called whenever
@@ -18,11 +29,29 @@ public class Ice extends Block
      */
     public void act() 
     {
+        checkTime();
+        if(descend){
+            goDown();
+        }
         checkCollision();
-        if(makeSlide){
-            slide(slider);
+        if(slider != null){
+            if(makeSlide){
+                slide(slider);
+            }
         }
     }   
+    
+    /**
+     * Checks if its time to descend.
+     */
+    public void checkTime(){
+        World w = getWorld();
+        Level currentLevel = (Level)w;
+        timer = currentLevel.getTimer();
+        if(timer.getValue() == 15){
+            descend = true;
+        }
+    }
     
     /**
      * Checks if the player has touched the surface.

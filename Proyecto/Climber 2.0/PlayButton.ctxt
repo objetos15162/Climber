@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=PlayButton
-comment0.text=\r\n\ Starts\ the\ game.\r\n\ \r\n\ @author\ Gerardo\ H.\r\n
+comment0.text=\r\n\ Starts\ the\ game.\r\n\ \r\n\ @author\ Gerardo\ H.\r\n\ @version\ 0.1\r\n
 comment1.params=
 comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Button1\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment1.text=\r\n\ Act\ -\ Sends\ player\ to\ the\ fist\ level\ when\ clicked.\r\n\ \r\n
 numComments=2

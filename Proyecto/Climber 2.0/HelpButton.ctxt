@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=HelpButton
-comment0.text=\r\n\ Prints\ the\ controls.\r\n\ \r\n\ @author\ Gerardo\ H.\r\n
+comment0.text=\r\n\ Sets\ the\ world\ to\ Help,\ which\ contain\ the\ playe's\ controls.\r\n\ \r\n\ @author\ Gerardo\ H.\r\n\ @version\ 0.2\r\n
 comment1.params=
 comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ HelpButton\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment1.text=\r\n\ Act\ -\ Checks\ for\ mouse\ click.\r\n\ When\ clicked,\ sends\ player\ to\ the\ controls\ screen.\r\n\ \r\n
 numComments=2

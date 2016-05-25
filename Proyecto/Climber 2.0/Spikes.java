@@ -4,13 +4,26 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * The objects of this class move in a vertical infinite loop and kill on touch.
  * 
  * @author Abraham B
+ * @version 12.04.16
  */
 public class Spikes extends Block
 {   
-    private boolean goingUp = true;
-    private boolean starting = true;
-    private int vSpeed = 5;
+    private boolean goingUp;
+    private boolean starting;
+    private int vSpeed;
+    private int dSpeed;
+    private boolean descend;
     private int startingY;
+    private Counter timer;
+    
+    public Spikes(){
+        super();
+        goingUp = true;
+        starting = true;
+        vSpeed = 5;
+        descend = false;
+        timer = null;
+    }
     
     /**
      * Act - do whatever the Spikes wants to do. This method is called whenever
@@ -18,6 +31,10 @@ public class Spikes extends Block
      */
     public void act() 
     {
+        checkTime();
+        if(descend){
+            goDown();
+        }
         if(starting){
             startingY = getGlobalY();
             starting = false;
@@ -25,6 +42,18 @@ public class Spikes extends Block
         move();
         checkCollision();
     }    
+    
+    /**
+     * Checks if its time to descend.
+     */
+    public void checkTime(){
+        World w = getWorld();
+        Level currentLevel = (Level)w;
+        timer = currentLevel.getTimer();
+        if(timer.getValue() == 15){
+            descend = true;
+        }
+    }
     
     /**
      * Makes the block move verticaly.
@@ -53,6 +82,17 @@ public class Spikes extends Block
         else{
             goingUp = true;
         }
+    }
+    
+    /**
+     * Starts the descend.
+     */
+    public void goDown(){
+        if(dSpeed % 5  == 0){
+            setLocation(getGlobalX(),getGlobalY()+1);
+            startingY ++;
+        }
+        dSpeed++;
     }
     
     /**

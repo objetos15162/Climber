@@ -1,19 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Level_1 here.
+ * Level 1's design.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Abraham Berrones. 
+ * @version 01.04.16
  */
-public class Level_1 extends Level
+public class Level1 extends Level
 {
 
     /**
      * Constructor for objects of class Level_1.
      * 
      */
-    public Level_1()
+    public Level1()
     {
         prepare();
         Door door = new Door();
@@ -136,9 +136,16 @@ public class Level_1 extends Level
         Block block30 = new Block();
         addObject(block30,614,185);
         block30.setLocation(772,232);
-        
+
         Block block31 = new Block();
         addObject(block31,602,330);
         block.setLocation(646,356);
+        Block block32 = new Block();
+        addObject(block32,38,468);
+        block32.setLocation(30,466);
+        block31.setLocation(31,464);
+        Block block37 = new Block();
+        addObject(block37,395,353);
+        block37.setLocation(395,355);
     }
 }
