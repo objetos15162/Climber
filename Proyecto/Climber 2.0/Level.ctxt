@@ -21,8 +21,13 @@ comment2.params=
 comment2.target=void\ addScore()
 comment2.text=\r\n\ Allows\ to\ set\ the\ playe's\ score\ in\ the\ inner\ variables.\r\n
 comment3.params=
+<<<<<<< HEAD
 comment3.target=void\ changeStartingY()
 comment3.text=\r\n\ Changes\ the\ player's\ starting\ position\r\n
+=======
+comment3.target=int\ getScore()
+comment3.text=\r\n\ \r\n\ @return\ The\ total\ height\ value.\r\n
+>>>>>>> origin/master
 comment4.params=
 comment4.target=int\ getScore()
 comment4.text=\r\n\ \r\n\ @return\ The\ total\ height\ value.\r\n

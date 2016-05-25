@@ -50,6 +50,7 @@ public class Level extends ScrollWorld
         maxHeight.setValue(0);
     }
     
+<<<<<<< HEAD
     
     /**
      * Changes the player's starting position
@@ -58,6 +59,8 @@ public class Level extends ScrollWorld
         startingY = 400;
     }
     
+=======
+>>>>>>> origin/master
     /**
      * 
      * @return The total height value.
