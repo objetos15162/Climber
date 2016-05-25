@@ -41,10 +41,7 @@ public class Block extends ScrollActor
         timer = currentLevel.getTimer();
         if(timer.getValue() == 15){
             descend = true;
-<<<<<<< HEAD
             currentLevel.changeStartingY();
-=======
->>>>>>> origin/master
         }
     }
     
