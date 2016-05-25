@@ -1,19 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Level_2 here.
+ * Level 2's design.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Abraham Berrones 
+ * @version 1.04.16
  */
-public class Level_2 extends Level
+public class Level2 extends Level
 {
 
     /**
      * Constructor for objects of class Level_2.
      * 
      */
-    public Level_2()
+    public Level2()
     {
         prepare();
         Door door = new Door();

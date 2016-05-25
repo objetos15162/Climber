@@ -1,14 +1,20 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Explosion here.
+ * This object is created when a Bomb block disappears.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Abraham B.
+ * @version 12.05.16
  */
 public class Explosion extends ScrollActor
 {
-    private SimpleTimer timer = new SimpleTimer();
+    private SimpleTimer timer;
+    
+    public Explosion(){
+        super();
+        timer = new SimpleTimer();
+    }
+    
     /**
      * Act - do whatever the Explosion wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -19,6 +25,9 @@ public class Explosion extends ScrollActor
         checkTimer();
     }    
     
+    /**
+     * Checks if is thouching a character to cause damage.
+     */
     private void checkCollision(){
         if(isTouching(Human.class)){
             Actor pl = getOneIntersectingObject(Player.class);
@@ -29,6 +38,9 @@ public class Explosion extends ScrollActor
         }
     }
     
+    /**
+     * Cheks the time to disappear.
+     */
     private void checkTimer(){
         if(timer.millisElapsed() > 600){
             getWorld().removeObject(this);

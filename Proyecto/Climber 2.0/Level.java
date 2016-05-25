@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MyWorld here.
+ * This class contains the base layout for every level.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Abraham Berrones. 
+ * @version 1.04.16
  */
 public class Level extends ScrollWorld
 {
@@ -14,17 +14,19 @@ public class Level extends ScrollWorld
     private Counter playersLives;
     private Counter maxHeight;
     private Counter totalHeight;
-    private int startingX = 80;
-    private int startingY = 544;
+    private int startingX;
+    private int startingY;
     
     /**
-     * Constructor for objects of class MyWorld.
+     * Constructor for objects of class Level.
      * 
      */
     public Level()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1, 800, 600); 
+        startingX = 80;
+        startingY = 544;
         timerDisplay = new Counter("Time: ");
         playersKnives = new Counter("Knives: ");
         timer = new SimpleTimer();
@@ -40,11 +42,26 @@ public class Level extends ScrollWorld
         prepare();
     }
     
+    /**
+     * Allows to set the playe's score in the inner variables.
+     */
     public void addScore(){
         totalHeight.setValue(totalHeight.getValue() + maxHeight.getValue());
         maxHeight.setValue(0);
     }
     
+    
+    /**
+     * Changes the player's starting position
+     */
+    public void changeStartingY(){
+        startingY = 400;
+    }
+    
+    /**
+     * 
+     * @return The total height value.
+     */
     public int getScore(){
         return totalHeight.getValue();
     }

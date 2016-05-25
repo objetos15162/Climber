@@ -1,16 +1,17 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class RecordsButton here.
+ * Sends the player to the Records screen.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Gerardo H. 
+ * @version 0.1
  */
 public class RecordsButton extends Actor
 {
     /**
-     * Act - do whatever the RecordsButton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Act - Checks for mouse click.
+     * Ehen clicked, sends the player to the records screen.
+     * 
      */
     public void act() 
     {

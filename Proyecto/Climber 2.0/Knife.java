@@ -1,29 +1,41 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Knife here.
+ * This is a weapon class, it it thrown by characters to attack.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Gerardo H. 
+ * @version 0.6
  */
 public class Knife extends ScrollActor
 {
-    private int speed = 10;
+    private int speed;
     private boolean recoverable;
+    
+    public Knife(){
+        super();
+        speed = 10;
+    }
+    
     /**
-     * Act - do whatever the Knife wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Act - checks for player or block collision.
+     * 
      */
     public void act() 
     {
         collision();
     }
     
+    /**
+     * Makes the object automaticaly move forward.
+     */
     private void move()
     {
         move(speed);
     }
     
+    /**
+     * Sets the movement direction.
+     */
     public void setDirection(boolean right){
         if(right){
             setRotation(0);
@@ -33,11 +45,18 @@ public class Knife extends ScrollActor
         }
     }
     
+    /**
+     * Makes the object available for recover.
+     */
     private void noMove()
     {
         recoverable = true;
     }
     
+    
+    /**
+     * Checks for collisions with an object and decides what to do.
+     */
     private void collision()
     {
         if(!isTouching(Block.class))
@@ -59,6 +78,16 @@ public class Knife extends ScrollActor
             else{
                 p.addKnife();
                 getWorld().removeObject(this);
+            }
+        }
+        else{
+            if(isTouching(Enemy.class)){
+                if(!recoverable){
+                    removeTouching(Enemy.class);
+                }
+                else{
+    
+                }
             }
         }
     }

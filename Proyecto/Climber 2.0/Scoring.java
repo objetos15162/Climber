@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Scoring here.
+ * This class prints a sreen that displays your score.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Abraham Berrones
+ * @version 20.05.16
  */
 public class Scoring extends World
 {
